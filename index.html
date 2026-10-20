@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Cards Game</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- START SCREEN -->
+    <!-- ========================= -->
+
+    <div class="start-screen" id="startScreen">
+
+        <div class="start-box">
+
+            <h1>🧠 Memory Cards Game</h1>
+
+            <p>Enter Players' Names</p>
+
+            <input
+                type="text"
+                id="player1Input"
+                placeholder="Player 1 Name">
+
+            <input
+                type="text"
+                id="player2Input"
+                placeholder="Player 2 Name">
+
+            <button id="startGameBtn">
+
+                🎮 Start Game
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Background -->
+    <!-- ========================= -->
+
+    <div class="background-circles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <div class="container">
+
+        <!-- ========================= -->
+        <!-- Header -->
+        <!-- ========================= -->
+
+        <header>
+
+            <h1>🧠 Memory Cards Game</h1>
+
+            <p>Match all the cards before your opponent!</p>
+
+        </header>
+
+        <!-- ========================= -->
+        <!-- Score Board -->
+        <!-- ========================= -->
+
+        <div class="score-board">
+
+            <div class="player player1 active-player">
+
+                <h2 id="player1Name">
+
+                    👦 Player 1
+
+                </h2>
+
+                <h3 id="score1">
+
+                    0
+
+                </h3>
+
+            </div>
+
+            <div class="turn-box">
+
+                <h2>
+
+                    Current Turn
+
+                </h2>
+
+                <span id="currentPlayer">
+
+                    Player 1
+
+                </span>
+
+            </div>
+
+            <div class="player player2">
+
+                <h2 id="player2Name">
+
+                    👧 Player 2
+
+                </h2>
+
+                <h3 id="score2">
+
+                    0
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- Timer & Music -->
+        <!-- ========================= -->
+
+        <div class="game-info">
+
+            <div class="timer-box">
+
+                ⏱️ Time:
+                <span id="timer">
+
+                    00:00
+
+                </span>
+
+            </div>
+
+            <button id="musicBtn">
+
+                🔊 Music ON
+
+            </button>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- Game Board -->
+        <!-- ========================= -->
+
+        <div
+            class="game-board"
+            id="gameBoard">
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- Restart -->
+        <!-- ========================= -->
+
+        <div class="buttons">
+
+            <button id="restartBtn">
+
+                🔄 Restart Game
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Winner Popup -->
+    <!-- ========================= -->
+
+    <div
+        class="popup"
+        id="popup">
+
+        <div class="popup-content">
+
+            <h1>
+
+                🏆
+
+            </h1>
+
+            <h2 id="winnerText">
+
+                Player Wins!
+
+            </h2>
+
+            <button id="playAgain">
+
+                ▶ Play Again
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Background Music -->
+    <!-- ========================= -->
+
+    <audio
+        id="bgMusic"
+        loop>
+
+        <source
+            src="music.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+    <!-- ========================= -->
+    <!-- Confetti -->
+    <!-- ========================= -->
+
+    <canvas id="confetti"></canvas>
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+

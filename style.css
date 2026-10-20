@@ -1,0 +1,736 @@
+/* ===========================
+   Google Font & Reset
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#4facfe,#00f2fe,#8b5cf6,#ff6ec4);
+    background-size:400% 400%;
+    animation:bgAnimation 12s ease infinite;
+
+    overflow-x:hidden;
+}
+
+@keyframes bgAnimation{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* ===========================
+   Floating Circles
+=========================== */
+
+.background-circles span{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    animation:float 12s infinite;
+
+}
+
+.background-circles span:nth-child(1){
+
+    width:220px;
+    height:220px;
+
+    top:5%;
+    left:10%;
+
+}
+
+.background-circles span:nth-child(2){
+
+    width:150px;
+    height:150px;
+
+    bottom:10%;
+    right:8%;
+
+}
+
+.background-circles span:nth-child(3){
+
+    width:120px;
+    height:120px;
+
+    top:70%;
+    left:20%;
+
+}
+
+.background-circles span:nth-child(4){
+
+    width:180px;
+    height:180px;
+
+    right:25%;
+    top:20%;
+
+}
+
+@keyframes float{
+
+    50%{
+
+        transform:translateY(-35px);
+
+    }
+
+}
+
+/* ===========================
+   Container
+=========================== */
+
+.container{
+
+    width:95%;
+    max-width:1200px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
+
+/* ===========================
+ Header
+=========================== */
+
+header{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:35px;
+
+}
+
+header h1{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+header p{
+
+    font-size:18px;
+
+}
+
+/* ===========================
+ Score Board
+=========================== */
+
+.score-board{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:40px;
+
+}
+
+.player{
+
+    flex:1;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    color:white;
+
+    transition:.4s;
+
+}
+
+.player h2{
+
+    margin-bottom:15px;
+
+}
+
+.player h3{
+
+    font-size:45px;
+
+}
+
+.player1{
+
+    background:#3b82f6;
+
+}
+
+.player2{
+
+    background:#ef4444;
+
+}
+
+.active-player{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 25px white;
+
+}
+
+/* ===========================
+ Turn Box
+=========================== */
+
+.turn-box{
+
+    width:230px;
+
+    background:white;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:18px;
+
+}
+
+.turn-box h2{
+
+    color:#555;
+
+    margin-bottom:8px;
+
+}
+
+#currentPlayer{
+
+    color:#8b5cf6;
+
+    font-weight:bold;
+
+    font-size:24px;
+
+}
+
+/* ===========================
+ Game Board
+=========================== */
+
+.game-board{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+/* ===========================
+ Card
+=========================== */
+
+.card{
+
+    width:100%;
+
+    height:150px;
+
+    perspective:1000px;
+
+    cursor:pointer;
+
+}
+
+.card-inner{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    transform-style:preserve-3d;
+
+    transition:.7s;
+
+}
+
+.card.flip .card-inner{
+
+    transform:rotateY(180deg);
+
+}
+
+.card-front,
+.card-back{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    backface-visibility:hidden;
+
+}
+
+/* Front */
+
+.card-front{
+
+    background:white;
+
+    font-size:50px;
+
+    color:#8b5cf6;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.card:hover .card-front{
+
+    transform:scale(1.05);
+
+}
+
+/* Back */
+
+.card-back{
+
+    background:#ffffff;
+
+    transform:rotateY(180deg);
+
+    font-size:70px;
+
+}
+
+/* Matched */
+
+.card.matched .card-front{
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+.card.matched{
+
+    animation:matched .8s;
+
+}
+
+@keyframes matched{
+
+    25%{
+
+        transform:scale(1.1);
+
+    }
+
+    50%{
+
+        transform:scale(.9);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+ Buttons
+=========================== */
+
+.buttons{
+
+    margin-top:35px;
+
+    text-align:center;
+
+}
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:15px;
+
+    padding:15px 35px;
+
+    font-size:18px;
+
+    background:#ffd93d;
+
+    transition:.3s;
+
+    font-weight:bold;
+
+}
+
+button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 25px rgba(0,0,0,.25);
+
+}
+
+/* ===========================
+ Popup
+=========================== */
+
+.popup{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    visibility:hidden;
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.popup.show{
+
+    visibility:visible;
+
+    opacity:1;
+
+}
+
+.popup-content{
+
+    width:420px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    animation:popup .5s;
+
+}
+
+.popup-content h1{
+
+    font-size:80px;
+
+}
+
+.popup-content h2{
+
+    margin:25px 0;
+
+    color:#444;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.6);
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+ Confetti Canvas
+=========================== */
+
+#confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+ Responsive
+=========================== */
+
+@media(max-width:900px){
+
+    .score-board{
+
+        flex-direction:column;
+
+    }
+
+    .turn-box{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .game-board{
+
+        grid-template-columns:repeat(4,75px);
+
+        justify-content:center;
+
+    }
+
+    .card{
+
+        height:75px;
+
+    }
+
+    .card-front{
+
+        font-size:30px;
+
+    }
+
+    .card-back{
+
+        font-size:35px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    header h1{
+
+        font-size:30px;
+
+    }
+
+    .container{
+
+        padding:20px;
+
+    }
+
+}
+
+/*==========================
+Game Info
+==========================*/
+
+.game-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    gap:20px;
+
+}
+
+.timer-box{
+
+    background:white;
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#6a11cb;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+}
+
+#musicBtn{
+
+    background:#34d399;
+
+    color:white;
+
+}
+
+#musicBtn:hover{
+
+    background:#10b981;
+
+}
+
+/* ==========================
+Start Screen
+========================== */
+
+.start-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(135deg,#4facfe,#8b5cf6,#ff6ec4);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.start-box{
+
+    width:420px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+
+}
+
+.start-box h1{
+
+    margin-bottom:15px;
+
+    color:#6a11cb;
+
+}
+
+.start-box p{
+
+    margin-bottom:25px;
+
+    color:#555;
+
+}
+
+.start-box input{
+
+    width:100%;
+
+    margin-bottom:20px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:2px solid #ddd;
+
+    font-size:18px;
+
+    outline:none;
+
+}
+
+.start-box input:focus{
+
+    border-color:#6a11cb;
+
+}
+
+#startGameBtn{
+
+    width:100%;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:20px;
+
+}
